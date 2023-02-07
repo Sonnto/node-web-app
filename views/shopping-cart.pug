@@ -1,0 +1,11 @@
+extends layout 
+
+block main-content 
+    h1.section-title Shopping Cart 
+    div(class='shopping-cart-section')
+        .cart_container 
+            each item in cart
+                .cart_item
+                    p #{item.product}
+                    p $#{item.price}
+                    img(src=`/assets/images/${item.img}`)
