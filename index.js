@@ -2,9 +2,14 @@
 const express = require("express");
 const path = require("path");
 const { MongoClient } = require("mongodb");
+// const { env } = require("process");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const dbUrl =
-  "mongodb://assign1user:assign1!@127.0.0.1:27017/?authMechanism=DEFAULT&authSource=assign1db";
+const dbUsername = process.env.DATABASE_USERNAME;
+const dbPassword = process.env.DATABASE_PASSWORD;
+
+const dbUrl = `mongodb+srv://${dbUsername}:${dbPassword}@cluster0.mwgsgmu.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(dbUrl);
 
 //set up Express object and port
